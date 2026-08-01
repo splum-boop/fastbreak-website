@@ -178,19 +178,38 @@
 
   .coverage{ display:grid; grid-template-columns:1fr 1.1fr; gap:48px; align-items:center; }
   .coverage-map-wrap{
-    position:relative; border-radius:18px; overflow:hidden;
+    position:relative; border-radius:18px; overflow:hidden; cursor:zoom-in;
     border:1px solid var(--line); box-shadow:0 12px 34px rgba(15,27,45,0.1);
   }
-  .coverage-map-img{ width:100%; display:block; }
-  .map-badge{
-    position:absolute; bottom:14px; left:14px;
-    display:flex; align-items:center; gap:8px;
-    background:rgba(255,255,255,0.95); backdrop-filter:blur(4px);
-    padding:9px 16px; border-radius:999px; border:1px solid var(--line);
-    font-size:12.5px; font-weight:800; color:var(--ink);
-    box-shadow:0 6px 18px rgba(15,27,45,0.1);
+  .coverage-map-img{ width:100%; display:block; transition:transform .25s ease; }
+  .coverage-map-wrap:hover .coverage-map-img{ transform:scale(1.03); }
+  .map-zoom-hint{
+    position:absolute; top:14px; right:14px;
+    background:rgba(15,27,45,0.75); color:var(--white);
+    padding:7px 14px; border-radius:999px; font-size:12px; font-weight:700;
+    opacity:0; transition:opacity .2s ease;
   }
-  .map-badge-dot{ width:9px; height:9px; border-radius:50%; background:var(--court); box-shadow:0 0 0 3px var(--ice-pale); }
+  .coverage-map-wrap:hover .map-zoom-hint{ opacity:1; }
+  .map-caption{
+    display:flex; align-items:center; gap:8px;
+    margin-top:14px; font-size:13.5px; font-weight:800; color:var(--ink);
+  }
+  .map-caption-dot{ width:9px; height:9px; border-radius:50%; background:var(--court); box-shadow:0 0 0 3px var(--ice-pale); flex-shrink:0; }
+
+  .lightbox{
+    display:none; position:fixed; inset:0; z-index:200;
+    background:rgba(15,27,45,0.92);
+    align-items:center; justify-content:center; padding:30px;
+    cursor:zoom-out;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox img{ max-width:96vw; max-height:92vh; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.4); }
+  .lightbox-close{
+    position:absolute; top:22px; right:26px;
+    background:var(--white); color:var(--ink); border:none;
+    width:40px; height:40px; border-radius:50%; font-size:20px; font-weight:800;
+    cursor:pointer;
+  }
   .coverage-copy ul{ list-style:none; margin-top:18px; }
   .coverage-copy li{ display:flex; gap:10px; align-items:flex-start; font-size:15px; color:var(--ink); padding:12px 0; border-bottom:1px solid var(--line); }
   .coverage-copy li .mark{ color:var(--court); font-weight:900; }
@@ -326,11 +345,12 @@
     <p class="section-desc">Free delivery inside our 30-mile radius. Outside it? We'll still come — a delivery fee applies based on distance.</p>
   </div>
   <div class="coverage">
-    <div class="coverage-map-wrap">
+    <div class="coverage-map-wrap" id="map-zoom-trigger">
       <img src="coverage-map.png" alt="30-mile free delivery radius from Brownstown, IL" class="coverage-map-img">
-      <div class="map-badge">
-        <span class="map-badge-dot"></span> Brownstown, IL — 30-Mile Free Radius
-      </div>
+      <div class="map-zoom-hint">🔍 Click to zoom</div>
+    </div>
+    <div class="map-caption">
+      <span class="map-caption-dot"></span> Brownstown, IL — 30-Mile Free Radius
     </div>
     <div class="coverage-copy">
       <ul>
@@ -385,6 +405,23 @@
   <div><a href="mailto:sales@fastbreakwater.com" style="color:var(--court); font-weight:700;">sales@fastbreakwater.com</a> &nbsp;·&nbsp; Bulk Water Delivery · 30-Mile Free Radius · 24/7 Line</div>
   <div><a href="privacy.html" style="color:var(--slate); font-weight:600;">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:var(--slate); font-weight:600;">Terms of Use</a> &nbsp;·&nbsp; <a href="contact.html" style="color:var(--slate); font-weight:600;">Contact Us</a></div>
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  <img src="coverage-map.png" alt="30-mile free delivery radius from Brownstown, IL — zoomed">
+</div>
+
+<script>
+  const trigger = document.getElementById('map-zoom-trigger');
+  const lightbox = document.getElementById('lightbox');
+  const closeBtn = document.getElementById('lightbox-close');
+  function openLightbox(){ lightbox.classList.add('open'); }
+  function closeLightbox(){ lightbox.classList.remove('open'); }
+  if(trigger){ trigger.addEventListener('click', openLightbox); }
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox){ closeLightbox(); } });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeLightbox(); } });
+</script>
 
 </body>
 </html>

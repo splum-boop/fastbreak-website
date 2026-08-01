@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | FASTBREAK Water and Ice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#F4F9FF; --white:#FFFFFF; --court:#1E5FD9; --ice-pale:#E4F2FF; --ink:#0F1B2D;
+    --slate:#5B6B82; --line: rgba(15,27,45,0.09); --orange:#FF7A1A; --orange-pale:#FFF1E4;
+    --green:#22C55E;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ background:var(--sky); color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+  a{ color:var(--court); text-decoration:none; font-weight:600; }
+  .display{ font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0.01em; }
+  .topbar{ background:var(--white); border-bottom:1px solid var(--line); padding:18px 24px; }
+  .topbar-inner{ max-width:720px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+  .wrap{ max-width:720px; margin:0 auto; padding:60px 24px 100px; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--orange); border:1px solid rgba(255,122,26,0.35);
+    background:var(--orange-pale); padding:7px 14px; border-radius:999px;
+    margin-bottom:22px;
+  }
+  h1{ font-size:clamp(30px,4vw,46px); }
+  .sub{ margin-top:14px; font-size:16px; line-height:1.6; color:var(--slate); max-width:520px; }
+  .urgent{
+    margin-top:24px; display:flex; align-items:center; gap:12px;
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    padding:16px 20px; box-shadow:0 6px 18px rgba(15,27,45,0.04);
+  }
+  .urgent b{ font-size:15px; }
+  .urgent a{ margin-left:auto; background:var(--court); color:var(--white); padding:10px 18px; border-radius:999px; font-size:14px; white-space:nowrap; }
+
+  .card{ background:var(--white); border:1px solid var(--line); border-radius:18px; padding:36px 38px; margin-top:32px; box-shadow:0 10px 30px rgba(15,27,45,0.05); }
+  label{ display:block; font-size:13.5px; font-weight:700; margin-bottom:7px; margin-top:20px; }
+  label:first-of-type{ margin-top:0; }
+  input, textarea{
+    width:100%; border:1.5px solid var(--line); border-radius:10px;
+    padding:13px 14px; font-family:'Inter',sans-serif; font-size:15px; color:var(--ink);
+    background:var(--sky);
+  }
+  input:focus, textarea:focus{ outline:none; border-color:var(--court); background:var(--white); }
+  textarea{ min-height:120px; resize:vertical; }
+  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .submit-btn{
+    margin-top:26px; width:100%;
+    background:var(--court); color:var(--white); border:none;
+    font-family:'Inter',sans-serif; font-weight:800; font-size:16px;
+    padding:16px; border-radius:12px; cursor:pointer;
+    box-shadow:0 10px 24px rgba(30,95,217,0.28);
+  }
+  .submit-btn:hover{ opacity:0.94; }
+  .submit-btn:disabled{ opacity:0.6; cursor:not-allowed; }
+  .status{ margin-top:16px; font-size:14.5px; font-weight:600; display:none; }
+  .status.success{ color:var(--green); display:block; }
+  .status.error{ color:#C2530A; display:block; }
+  .hp{ position:absolute; left:-9999px; }
+
+  footer{ max-width:720px; margin:0 auto; padding:30px 24px 60px; color:var(--slate); font-size:13px; border-top:1px solid var(--line); }
+  @media (max-width:560px){ .row2{ grid-template-columns:1fr; } .urgent{ flex-direction:column; align-items:flex-start; } .urgent a{ margin-left:0; } }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <a href="index.html" class="display" style="font-size:16px;">FASTBREAK</a>
+  <a href="index.html">← Back to Site</a>
+</div></div>
+
+<div class="wrap">
+  <div class="eyebrow">Contact Us</div>
+  <h1 class="display">Questions? Send Us A Message</h1>
+  <p class="sub">For general questions, quotes, or commercial accounts. We'll get back to you by email — usually within one business day.</p>
+
+  <div class="urgent">
+    <div><b>Need water today?</b> Skip the form — call the line, it's answered 24/7.</div>
+    <a href="tel:+16184271777">📞 (618) 427-1777</a>
+  </div>
+
+  <div class="card">
+    <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="hp"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <div class="row2">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+      </div>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Tell us what you need — service type, location, and any details."></textarea>
+
+      <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
+      <div class="status" id="form-status"></div>
+    </form>
+  </div>
+</div>
+
+<footer>FASTBREAK Water and Ice LLC — Brownstown, IL</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.className = 'status';
+
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      status.textContent = "Message sent — we'll get back to you soon.";
+      status.className = 'status success';
+      form.reset();
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    })
+    .catch(() => {
+      status.textContent = "Something went wrong. Please call us instead: (618) 427-1777";
+      status.className = 'status error';
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    });
+  });
+</script>
+</body>
+</html>

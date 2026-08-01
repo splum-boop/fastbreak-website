@@ -177,25 +177,20 @@
   }
 
   .coverage{ display:grid; grid-template-columns:1fr 1.1fr; gap:48px; align-items:center; }
-  .coverage-visual{
-    position:relative; aspect-ratio:1/1; border-radius:50%;
-    background:radial-gradient(circle at center, var(--ice-pale), transparent 70%);
-    border:2px dashed rgba(30,95,217,0.3);
-    display:flex; align-items:center; justify-content:center;
+  .coverage-map-wrap{
+    position:relative; border-radius:18px; overflow:hidden;
+    border:1px solid var(--line); box-shadow:0 12px 34px rgba(15,27,45,0.1);
   }
-  .coverage-visual .core{
-    width:56%; aspect-ratio:1/1; border-radius:50%; background:var(--white);
-    border:2px solid var(--court); box-shadow:0 10px 24px rgba(30,95,217,0.15);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; padding:10px;
+  .coverage-map-img{ width:100%; display:block; }
+  .map-badge{
+    position:absolute; bottom:14px; left:14px;
+    display:flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,0.95); backdrop-filter:blur(4px);
+    padding:9px 16px; border-radius:999px; border:1px solid var(--line);
+    font-size:12.5px; font-weight:800; color:var(--ink);
+    box-shadow:0 6px 18px rgba(15,27,45,0.1);
   }
-  .coverage-visual .core .city{ font-family:'Anton',sans-serif; font-size:22px; color:var(--ink); }
-  .coverage-visual .core .radius{ font-size:12px; color:var(--slate); margin-top:4px; font-weight:700; }
-  .coverage-visual .ring-label{
-    position:absolute; bottom:-6px; left:50%; transform:translateX(-50%);
-    font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--court);
-    background:var(--white); padding:5px 14px; border-radius:999px; border:1px solid var(--line); font-weight:800;
-  }
+  .map-badge-dot{ width:9px; height:9px; border-radius:50%; background:var(--court); box-shadow:0 0 0 3px var(--ice-pale); }
   .coverage-copy ul{ list-style:none; margin-top:18px; }
   .coverage-copy li{ display:flex; gap:10px; align-items:flex-start; font-size:15px; color:var(--ink); padding:12px 0; border-bottom:1px solid var(--line); }
   .coverage-copy li .mark{ color:var(--court); font-weight:900; }
@@ -331,12 +326,11 @@
     <p class="section-desc">Free delivery inside our 30-mile radius. Outside it? We'll still come — a delivery fee applies based on distance.</p>
   </div>
   <div class="coverage">
-    <div class="coverage-visual">
-      <div class="core">
-        <div class="city display">Brownstown</div>
-        <div class="radius">Home Base</div>
+    <div class="coverage-map-wrap">
+      <img src="coverage-map.png" alt="30-mile free delivery radius from Brownstown, IL" class="coverage-map-img">
+      <div class="map-badge">
+        <span class="map-badge-dot"></span> Brownstown, IL — 30-Mile Free Radius
       </div>
-      <div class="ring-label">30-Mile Free Radius</div>
     </div>
     <div class="coverage-copy">
       <ul>
@@ -389,6 +383,7 @@
 <footer>
   <div>FASTBREAK Water and Ice LLC — Brownstown, IL</div>
   <div><a href="mailto:sales@fastbreakwater.com" style="color:var(--court); font-weight:700;">sales@fastbreakwater.com</a> &nbsp;·&nbsp; Bulk Water Delivery · 30-Mile Free Radius · 24/7 Line</div>
+  <div><a href="privacy.html" style="color:var(--slate); font-weight:600;">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:var(--slate); font-weight:600;">Terms of Use</a> &nbsp;·&nbsp; <a href="contact.html" style="color:var(--slate); font-weight:600;">Contact Us</a></div>
 </footer>
 
 </body>

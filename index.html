@@ -130,6 +130,12 @@
     font-weight:700; font-size:15px; padding:16px 22px; border-radius:12px;
   }
   .hero-note{ margin-top:18px; font-size:13.5px; color:var(--slate); font-weight:600; }
+  .promo-banner{
+    margin-top:14px; display:inline-flex; align-items:center; gap:8px;
+    background:var(--orange-pale); border:1px solid rgba(255,122,26,0.35);
+    color:#C2530A; font-size:13.5px; font-weight:700;
+    padding:10px 16px; border-radius:10px;
+  }
   .hero-visual{ position:relative; z-index:1; display:flex; align-items:center; justify-content:center; }
   .hero-visual img{ width:100%; max-width:520px; filter:drop-shadow(0 24px 40px rgba(30,95,217,0.18)); }
 
@@ -231,6 +237,15 @@
 
   .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   .step{ background:var(--white); border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 6px 18px rgba(15,27,45,0.04); }
+
+  .towns-wrap{ margin-top:20px; grid-column:1 / -1; }
+  .towns-label{ font-size:12px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); margin-bottom:12px; }
+  .towns-grid{ display:flex; flex-wrap:wrap; gap:10px; }
+  .town-chip{
+    background:var(--white); border:1px solid var(--line); border-radius:999px;
+    padding:8px 16px; font-size:13.5px; font-weight:700; color:var(--ink);
+  }
+  .towns-note{ margin-top:16px; font-size:14px; color:var(--slate); }
   .step .n{ font-family:'Anton',sans-serif; font-size:40px; color:transparent; -webkit-text-stroke:1.5px var(--court); }
   .step h4{ font-size:17px; font-weight:800; margin-top:6px; }
   .step p{ font-size:14px; color:var(--slate); margin-top:6px; line-height:1.55; }
@@ -300,9 +315,10 @@
     </p>
     <div class="hero-cta">
       <a href="tel:+16184271777" class="btn-primary">📞 (618) 427-1777 — Call Now</a>
-      <a href="#coverage" class="btn-secondary">Check My Area →</a>
+      <a href="quick-quote.html" class="btn-secondary">💧 Get a Fast Quote →</a>
     </div>
     <div class="hero-note">Free delivery within 30 miles of Brownstown · $5/mile applies beyond</div>
+    <div class="promo-banner">🎉 <strong>Launch Special:</strong> Free delivery up to 60 miles through September 30, 2026</div>
   </div>
   <div class="hero-visual">
     <img src="fastbreak-logo.png" alt="FASTBREAK Water and Ice tanker truck">
@@ -340,8 +356,9 @@
       <div class="sub">1,600 gallons · within 30-mile free radius</div>
     </div>
     <div class="pricing-right">
-      <div class="pricing-row"><span>Inside 30 miles</span><b>$120 flat</b></div>
-      <div class="pricing-row"><span>Outside 30 miles</span><b>+$5/mile</b></div>
+      <div class="pricing-row" style="background:var(--orange-pale); margin:-4px -12px 6px; padding:12px; border-radius:10px; border:none;"><span>🎉 Launch Special — through 9/30/26</span><b>Free to 60 mi</b></div>
+      <div class="pricing-row"><span>Standard: Inside 30 miles</span><b>$120 flat</b></div>
+      <div class="pricing-row"><span>Standard: Outside 30 miles</span><b>+$5/mile</b></div>
       <div class="pricing-row"><span>After-hours emergency (outside 7am–4pm Mon–Fri)</span><b>+$100</b></div>
     </div>
   </div>
@@ -373,16 +390,65 @@
     </div>
     <div class="coverage-copy">
       <ul>
-        <li><span class="mark">✓</span> Inside 30 miles — no delivery charge, $120 flat rate applies</li>
-        <li><span class="mark">✓</span> Outside 30 miles — $5 per mile beyond the free radius applies</li>
-        <li><span class="mark">✓</span> Don't see your town — call anyway, we regularly run outside the line</li>
+        <li><span class="mark">✓</span> 🎉 Launch Special: free delivery up to 60 miles through Sept 30, 2026</li>
+        <li><span class="mark">✓</span> Standard rate after 9/30/26 — inside 30 miles no charge, $5/mile applies beyond</li>
+        <li><span class="mark">✓</span> Serving Vandalia, Effingham, Shelbyville, Salem, Greenville, Pana, Altamont &amp; more — full list below</li>
         <li><span class="mark">✓</span> 24/7 emergency service — after-hours surcharge applies outside 7am–4pm Mon–Fri</li>
       </ul>
     </div>
   </div>
+
+  <div class="towns-wrap">
+    <div class="towns-label">Towns We Regularly Serve</div>
+    <div class="towns-grid">
+      <span class="town-chip">Vandalia</span>
+      <span class="town-chip">Effingham</span>
+      <span class="town-chip">Shelbyville</span>
+      <span class="town-chip">Teutopolis</span>
+      <span class="town-chip">Dieterich</span>
+      <span class="town-chip">Louisville, IL</span>
+      <span class="town-chip">Salem</span>
+      <span class="town-chip">Kinmundy</span>
+      <span class="town-chip">Farina</span>
+      <span class="town-chip">Sandoval</span>
+      <span class="town-chip">Patoka</span>
+      <span class="town-chip">Greenville</span>
+      <span class="town-chip">Coffeen</span>
+      <span class="town-chip">Ramsey</span>
+      <span class="town-chip">Pana</span>
+      <span class="town-chip">Altamont</span>
+      <span class="town-chip">Beecher City</span>
+      <span class="town-chip">Cowden</span>
+      <span class="town-chip">Mulberry Grove</span>
+    </div>
+    <p class="towns-note">Don't see your town? Call anyway — we regularly run outside this list, and mileage beyond 30 miles is just $5/mile.</p>
+  </div>
 </section>
 
-<section class="section" id="how">
+<section class="section" id="load-sizing">
+  <div class="section-head">
+    <div class="section-eyebrow">Sizing It Out</div>
+    <h2 class="section-title display">How Many Loads Might I Need?</h2>
+    <p class="section-desc">Rough examples based on common jobs — your exact count depends on current water level and how full you want it. We'll confirm before dispatch.</p>
+  </div>
+  <div class="grid-services">
+    <div class="svc">
+      <div class="ico">P</div>
+      <h3>18' Round Pool, 52" Tall</h3>
+      <p>Roughly 7,400–8,200 gallons full — about <strong>5 loads</strong> from empty.</p>
+    </div>
+    <div class="svc">
+      <div class="ico">L</div>
+      <h3>8' Round Livestock Tank</h3>
+      <p>About 700 gallons — <strong>one standard load fills roughly two tanks</strong>.</p>
+    </div>
+    <div class="svc">
+      <div class="ico">P</div>
+      <h3>10'×15' Rectangle Pool, 52" Deep</h3>
+      <p>Roughly 4,400–4,900 gallons full — about <strong>3 loads</strong> from empty.</p>
+    </div>
+  </div>
+</section>
   <div class="section-head">
     <div class="section-eyebrow">How It Works</div>
     <h2 class="section-title display">Three Steps. No App Required.</h2>
@@ -416,13 +482,16 @@
 <section class="final">
   <h2 class="display">One Call. Water <span class="accent">Handled.</span></h2>
   <p>Line's open right now — day, night, weekend, doesn't matter.</p>
-  <a href="tel:+16184271777" class="btn-primary">📞 (618) 427-1777</a>
+  <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:30px;">
+    <a href="tel:+16184271777" class="btn-primary" style="margin-top:0;">📞 (618) 427-1777</a>
+    <a href="quick-quote.html" class="btn-secondary" style="font-size:16px; padding:20px 30px;">💧 Get a Fast Quote →</a>
+  </div>
 </section>
 
 <footer>
   <div>FASTBREAK Water and Ice LLC — Brownstown, IL</div>
   <div><a href="mailto:sales@fastbreakwater.com" style="color:var(--court); font-weight:700;">sales@fastbreakwater.com</a> &nbsp;·&nbsp; Bulk Water Delivery · 30-Mile Free Radius · 24/7 Line</div>
-  <div><a href="privacy.html" style="color:var(--slate); font-weight:600;">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:var(--slate); font-weight:600;">Terms of Use</a> &nbsp;·&nbsp; <a href="contact.html" style="color:var(--slate); font-weight:600;">Contact Us</a></div>
+  <div><a href="privacy.html" style="color:var(--slate); font-weight:600;">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:var(--slate); font-weight:600;">Terms of Use</a> &nbsp;·&nbsp; <a href="contact.html" style="color:var(--slate); font-weight:600;">Contact Us</a> &nbsp;·&nbsp; <a href="quick-quote.html" style="color:var(--slate); font-weight:600;">Get a Quote</a></div>
 </footer>
 
 <div class="lightbox" id="lightbox">

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Fast Quote | FASTBREAK Water and Ice</title>
+<meta name="description" content="Request a bulk water delivery quote from FASTBREAK Water and Ice — Brownstown, IL. $120 per 1,600-gallon load inside 30 miles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#F4F9FF; --white:#FFFFFF; --court:#1E5FD9; --ice-pale:#E4F2FF; --ink:#0F1B2D;
+    --slate:#5B6B82; --line: rgba(15,27,45,0.09); --orange:#FF7A1A; --orange-pale:#FFF1E4;
+    --green:#22C55E; --red:#DC2626;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ background:var(--sky); color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+  a{ color:var(--court); text-decoration:none; font-weight:600; }
+  .display{ font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0.01em; }
+  .topbar{ background:var(--white); border-bottom:1px solid var(--line); padding:18px 24px; }
+  .topbar-inner{ max-width:760px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+  .brand{ font-family:'Anton',sans-serif; font-size:22px; color:var(--court); letter-spacing:0.02em; }
+  .wrap{ max-width:760px; margin:0 auto; padding:48px 16px 100px; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--court); border:1px solid rgba(30,95,217,0.3);
+    background:var(--ice-pale); padding:7px 14px; border-radius:999px; margin-bottom:16px;
+  }
+  h1{ font-size:clamp(34px, 7vw, 52px); line-height:1.05; margin-bottom:14px; }
+  .lead{ color:var(--slate); font-size:16px; line-height:1.6; margin-bottom:24px; }
+  .urgent{
+    background:var(--orange-pale); border:1px solid rgba(255,122,26,0.35); border-radius:12px;
+    padding:16px 18px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;
+    margin-bottom:28px; font-size:15px;
+  }
+  .urgent a{ background:var(--orange); color:#fff; padding:10px 16px; border-radius:10px; font-weight:800; white-space:nowrap; }
+  .card{ background:var(--white); border:1px solid var(--line); border-radius:16px; padding:28px 22px; box-shadow:0 10px 30px rgba(15,27,45,0.05); }
+  label{ display:block; font-size:14px; font-weight:700; margin:18px 0 7px; }
+  label:first-of-type{ margin-top:0; }
+  .req{ color:var(--orange); }
+  input[type=text], input[type=tel], input[type=email], select, textarea{
+    width:100%; font:inherit; font-size:16px; color:var(--ink);
+    border:1px solid rgba(15,27,45,0.18); border-radius:10px; padding:12px 14px; background:#fff;
+  }
+  textarea{ min-height:96px; resize:vertical; }
+  input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--court); box-shadow:0 0 0 3px rgba(30,95,217,0.15); }
+  .radio-group{ display:flex; gap:12px; flex-wrap:wrap; }
+  .radio-option{
+    display:flex; align-items:center; gap:8px; margin:0; font-weight:600;
+    border:1px solid rgba(15,27,45,0.18); border-radius:10px; padding:10px 16px; cursor:pointer;
+  }
+  .hidden{ display:none; }
+  .submit-btn{
+    width:100%; margin-top:26px; background:var(--court); color:#fff; border:none; border-radius:12px;
+    font:inherit; font-size:17px; font-weight:800; padding:16px; cursor:pointer;
+  }
+  .submit-btn:disabled{ opacity:0.6; cursor:default; }
+  .status{ margin-top:14px; font-weight:700; font-size:15px; display:none; }
+  .status.success{ display:block; color:var(--green); }
+  .status.error{ display:block; color:var(--red); }
+  .pricing-note{ margin-top:22px; font-size:14px; color:var(--slate); line-height:1.6; }
+  footer{ text-align:center; color:var(--slate); font-size:13px; padding:30px 16px; border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="brand">FASTBREAK</a>
+    <a href="/">← Back to Site</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">💧 Fast Quote</div>
+  <h1 class="display">Tell Us The Job.<br>We'll Quote It.</h1>
+  <p class="lead">Usually within a couple hours — up to 4 hours on our busiest days. $120 per 1,600-gallon load inside 30 miles of Brownstown, $5/mile beyond.</p>
+
+  <div class="urgent">
+    <div><b>Need water today?</b> Skip the form — call the line, it's answered 24/7.</div>
+    <a href="tel:+16184271777">📞 (618) 427-1777</a>
+  </div>
+
+  <div class="card">
+    <form name="quote" id="quote-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="quote">
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <label for="name">Name <span class="req">*</span></label>
+      <input type="text" id="name" name="name" required autocomplete="name">
+
+      <label for="phone">Phone <span class="req">*</span></label>
+      <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(618) 555-1234">
+
+      <label for="address">Delivery Address or Town <span class="req">*</span></label>
+      <input type="text" id="address" name="address" required autocomplete="street-address" placeholder="Street address, or at least the town">
+
+      <label for="service">What Are We Filling? <span class="req">*</span></label>
+      <select id="service" name="service" required>
+        <option value="" disabled selected>Select one</option>
+        <option>Swimming Pool</option>
+        <option>Well or Cistern</option>
+        <option>Livestock Tank / Pond</option>
+        <option>Construction Site</option>
+        <option>RV / Camper</option>
+        <option>Holding Tank</option>
+        <option>Other</option>
+      </select>
+
+      <label for="date">When Do You Need It? <span class="req">*</span></label>
+      <input type="text" id="date" name="date" required placeholder="e.g. Today, tomorrow morning, Saturday">
+
+      <label for="details">Job Details <span class="req">*</span></label>
+      <textarea id="details" name="details" required placeholder="Size of pool/tank if known, how many loads you think you need, current water level — anything that helps us quote accurately."></textarea>
+
+      <label for="access">Access Notes (optional)</label>
+      <textarea id="access" name="access" placeholder="Gate codes, narrow driveway, dogs on property, best way in for a truck."></textarea>
+
+      <label>Preferred Response <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="contact_pref" value="Call" required> Call Me</label>
+        <label class="radio-option"><input type="radio" name="contact_pref" value="Text" required> Text Me</label>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">Get My Quote</button>
+      <div class="status" id="form-status"></div>
+    </form>
+
+    <p class="pricing-note">After-hours emergency dispatch (outside 7am–4pm Mon–Fri) adds $100. Final load count is confirmed before dispatch. All delivered water is non-potable.</p>
+  </div>
+</div>
+
+<footer>FASTBREAK Water and Ice LLC — Brownstown, IL · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></footer>
+
+<script>
+  const form = document.getElementById('quote-form');
+  const btn = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.className = 'status';
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('bad status');
+      status.textContent = "Got it — we'll be in touch soon with your quote.";
+      status.className = 'status success';
+      form.reset();
+    })
+    .catch(() => {
+      status.textContent = "Something went wrong. Please call us instead: (618) 427-1777";
+      status.className = 'status error';
+    })
+    .finally(() => {
+      btn.textContent = 'Get My Quote';
+      btn.disabled = false;
+    });
+  });
+</script>
+</body>
+</html>
